@@ -392,11 +392,6 @@
       overflow: visible;
     }
 
-    #features {
-      overflow: visible;
-      padding-bottom: 48px;
-    }
-
     .hero {
       grid-column: span 6;
       display: flex;
@@ -429,6 +424,78 @@
       font-weight: 600;
       letter-spacing: -0.01em;
       margin: 0;
+    }
+
+    .highlight {
+      color: var(--primary);
+    }
+
+    .feature-pills {
+      grid-column: span 12;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      justify-items: center;
+      margin-top: 18px;
+    }
+
+    .pill {
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      border-radius: var(--radius-pill);
+      padding: 10px 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mini-feature {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      text-align: center;
+      padding: 14px;
+      border-radius: var(--radius-2);
+      background: rgba(37,99,235,0.05);
+      border: 1px solid rgba(37,99,235,0.08);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mini-feature h3 {
+      margin: 0;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      color: var(--neutral700);
+    }
+
+    .mini-feature p {
+      margin: 0;
+      color: var(--neutral500);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .mini-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(37,99,235,0.16), rgba(30,64,175,0.12));
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mini-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
     }
 
     .body {
@@ -537,6 +604,7 @@
       overflow: hidden;
       border: none;
       box-shadow: none;
+      isolation: isolate;
     }
 
     .phone-image {
@@ -545,6 +613,12 @@
       height: auto;
       aspect-ratio: 4 / 5;
       object-fit: cover;
+      opacity: 1;
+      transition: opacity 420ms ease;
+    }
+
+    .phone-image.is-fading {
+      opacity: 0;
     }
 
     .store-badge {
@@ -640,6 +714,138 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       justify-items: center;
       gap: 18px;
+    }
+
+    .feature-carousel {
+      grid-column: span 12;
+      width: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .feature-stage {
+      width: min(960px, 100%);
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-3);
+      padding: 12px;
+      box-shadow: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-stage::after {
+      display: none;
+    }
+
+    .feature-track {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .feature-slide {
+      display: none;
+      height: 100%;
+      gap: 12px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .feature-slide.active {
+      display: flex;
+    }
+
+    .carousel-controls {
+      position: relative;
+      z-index: 1;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .carousel-btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.6);
+      color: var(--neutral700);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-pill);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: transform 150ms ease, box-shadow 150ms ease;
+    }
+
+    .carousel-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    :root[data-theme="dark"] .carousel-btn,
+    :root:not([data-theme="light"]) .carousel-btn {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .carousel-dots {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .carousel-dots .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(37,99,235,0.12);
+      padding: 0;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, width 160ms ease;
+    }
+
+    .carousel-dots .dot.active {
+      width: 18px;
+      background: var(--bg-button);
+      border-color: transparent;
+    }
+
+    .feature-visual {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: none;
+      border: none;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .feature-visual .phone-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .feature-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-align: center;
+    }
+
+    .feature-copy .body {
+      color: var(--neutral500);
+      margin: 0;
     }
 
     .pricing {
@@ -744,6 +950,83 @@
     .glow.a { top: 12%; left: 10%; }
     .glow.b { bottom: 16%; right: 8%; background: radial-gradient(circle at center, rgba(30,64,175,0.32), transparent 62%); }
 
+    .prefooter-wrap {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      border-top: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(37,99,235,0.04), rgba(37,99,235,0.02));
+      padding: 32px 0 40px;
+    }
+
+    .prefooter {
+      width: min(1200px, calc(100% - 64px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      align-items: start;
+      justify-items: start;
+    }
+
+    .prefooter .brand-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .prefooter .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .prefooter .brand-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .prefooter h4 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .prefooter .body {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .prefooter .links {
+      display: grid;
+      gap: 6px;
+    }
+
+    .prefooter a {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .prefooter .store-badge,
+    .prefooter .store-badge * {
+      color: #fff;
+    }
+
+    .prefooter a:hover {
+      text-decoration: underline;
+    }
+
+    .store-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
     @media (max-width: 1024px) {
       section {
         grid-template-columns: repeat(12, 1fr);
@@ -797,8 +1080,8 @@
       <section id="home" class="active">
         <div class="hero">
           <div class="eyebrow">Your conversational expense tracker</div>
-          <h1 class="title">Tell Gabet what you spent. I'll handle the rest.</h1>
-          <p class="body">A voicey, natural way to log purchases, spot patterns, and build better money habits. No forms, no friction; just text or speak and your budget stays current.</p>
+          <h1 class="title"><span class="highlight">Gabet</span> keeps up. <br> Capture money in and out.</h1>
+          <p class="body">The best, low-friction way to log income and expenses, spot patterns, and build better money habits. No forms, no friction—just quick text or photo updates that keep your budget accurate and up to date.</p>
           <div class="cta-row">
             <a class="store-badge" href="https://apps.apple.com/us/app/cal-ai-calorie-tracker/id6480417616?ppid=0fdd527c-4a8a-4b3f-9db0-ee844938c041" target="_blank" aria-label="Download on the Apple App Store">
               <div class="store-icon" aria-hidden="true">
@@ -826,158 +1109,81 @@
       </section>
 
       <section id="features">
-        <div class="hero feature-hero">
-          <div class="eyebrow">The basics, but better</div>
-          <h2 class="headline">Features that feel native and delight to use.</h2>
-          <p class="body">Built so you want to open it—quick safeguards for duplicates and a smooth path to grow income.</p>
+        <div class="hero feature-hero" style="grid-column: span 12; text-align: center; align-items: center;">
+          <div class="eyebrow">Our Main Features</div>
+          <h2 class="headline">Gabet’s Breakthrough Features</h2>
+          <p class="body" style="max-width: 740px; margin: 0 auto;">A fast, conversational way to log, guard, and grow—built to stay out of your way while keeping every money stream organized.</p>
         </div>
-        <div class="screens">
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="duplicate-transaction-light.png"
-                data-light-src="duplicate-transaction-light.png"
-                data-dark-src="duplicate-transaction-dark.png"
-                alt="Duplicate transaction check mockup UI">
+        <div class="feature-pills" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6 7.5h12M6 12h12M6 16.5h7"/><path d="M6 7.5c0 2.5 1.5 4.5 5 4.5s5 2 5 4.5"/></svg>
             </div>
-            <div class="label">Duplicate Transaction</div>
+            <h3>Auto Categorization</h3>
+            <p>SMS-style logging so Gabet applies your rules automatically.</p>
           </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="income-savings-light.png"
-                data-light-src="income-savings-light.png"
-                data-dark-src="income-savings-dark.png"
-                alt="Income & savings mockup UI">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="7" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="17" cy="12" r="1.2"/><rect x="4" y="7" width="16" height="10" rx="3"/></svg>
             </div>
-            <div class="label">Income & Savings</div>
+            <h3>Charts</h3>
+            <p>Tap between breakdowns without digging through menus.</p>
           </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="custom-categories-light.png"
-                data-light-src="custom-categories-light.png"
-                data-dark-src="custom-categories-dark.png"
-                alt="Custom categories mockup UI">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 19V9l5-5 5 5v10"/><path d="M7 13h10"/></svg>
             </div>
-            <div class="label">Custom Categories</div>
+            <h3>Budget & Reports</h3>
+            <p>Track limits, see recaps, and course-correct early.</p>
           </div>
-        </div>
-        <div class="screens charts-row">
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="donut-chart-light.png"
-                data-light-src="donut-chart-light.png"
-                data-dark-src="donut-chart-dark.png"
-                alt="Donut chart spend breakdown mockup">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg>
             </div>
-            <div class="label">Donut</div>
+            <h3>Duplicate Check</h3>
+            <p>Flags repeat entries before they clutter your ledger.</p>
           </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="bar-chart-light.png"
-                data-light-src="bar-chart-light.png"
-                data-dark-src="bar-chart-dark.png"
-                alt="Bar chart period breakdown mockup">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 9h11l-2.5-2.5M19 15H8l2.5 2.5"/></svg>
             </div>
-            <div class="label">Period</div>
+            <h3>Recurring Transactions</h3>
+            <p>Subscriptions and bills stay on schedule automatically.</p>
           </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="budget-light.png"
-                data-light-src="budget-light.png"
-                data-dark-src="budget-dark.png"
-                alt="Budget mockup">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 5h7l3 3v11H7z"/><path d="M10 10h5M10 14h5"/></svg>
             </div>
-            <div class="label">Budget</div>
+            <h3>Transaction List</h3>
+            <p>Quick view list of transactions for easy search.</p>
           </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="customize-categories-light.png"
-                data-light-src="customize-categories-light.png"
-                data-dark-src="customize-categories-dark.png"
-                alt="Customize categories mockup">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12.5V6h6.5L19 13.5 13.5 19z"/><circle cx="10" cy="9" r="1"/></svg>
             </div>
-            <div class="label">Category Customization</div>
+            <h3>Custom Categories</h3>
+            <p>Label spending the way you actually live.</p>
           </div>
-        </div>
-        <div class="screens spaces-row">
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="spaces-light.png"
-                data-light-src="spaces-light.png"
-                data-dark-src="spaces-dark.png"
-                alt="Spaces mockup">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4c4.5 0 8 2 8 4.5v7c0 2.5-3.5 4.5-8 4.5s-8-2-8-4.5v-7C4 6 7.5 4 12 4Z"/><path d="M4 12.5c1.5 1.2 4.5 2 8 2s6.5-.8 8-2"/></svg>
             </div>
-            <div class="label">Spaces</div>
+            <h3>Currency Conversion</h3>
+            <p>Setup exchange rates and let Gabet handle conversion.</p>
           </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="currency-convert-light.png"
-                data-light-src="currency-convert-light.png"
-                data-dark-src="currency-convert-dark.png"
-                alt="Auto currency conversion mockup">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 6h5l2 2h7v10H5z"/></svg>
             </div>
-            <div class="label">Auto Currency Conversion</div>
+            <h3>Spaces</h3>
+            <p>Separate plans for trips, home, or side gigs.</p>
           </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="shared-spaces-light.png"
-                data-light-src="shared-spaces-light.png"
-                data-dark-src="shared-spaces-dark.png"
-                alt="Shared spaces mockup">
+          <div class="mini-feature">
+            <div class="mini-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4.5 10.5 9 15l3-3 3 3 4.5-4.5"/><path d="M4 6h5l2 2h7l2 2"/></svg>
             </div>
-            <div class="label">Shared Spaces</div>
-          </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="transaction-list-light.png"
-                data-light-src="transaction-list-light.png"
-                data-dark-src="transaction-list-dark.png"
-                alt="Transaction list mockup">
-            </div>
-            <div class="label">Transaction List</div>
-          </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="recurring-transaction-light.png"
-                data-light-src="recurring-transaction-light.png"
-                data-dark-src="recurring-transaction-dark.png"
-                alt="Recurring transactions mockup">
-            </div>
-            <div class="label">Recurring Transactions</div>
-          </div>
-          <div class="screen-card">
-            <div class="mock-phone">
-              <img
-                class="phone-image"
-                src="reports-light.png"
-                data-light-src="reports-light.png"
-                data-dark-src="reports-dark.png"
-                alt="Reports overview mockup">
-            </div>
-            <div class="label">Reports</div>
+            <h3>Shared Spaces</h3>
+            <p>Collaborate with clear roles and shared rules.</p>
           </div>
         </div>
       </section>
@@ -1013,6 +1219,43 @@
       </section>
     </main>
 
+    <div class="prefooter-wrap">
+      <div class="prefooter">
+        <div class="brand-block">
+          <div class="brand" style="position: static; transform: none; gap: 8px;">
+            <div class="brand-mark" style="width:40px; height:40px;">
+              <img class="brand-logo" src="logo.png" alt="Gabet logo">
+            </div>
+            <div class="title" style="font-size:20px; margin:0;">Gabet</div>
+          </div>          
+          <div class="store-row">
+            <a class="store-badge" href="" target="_blank" aria-label="Download on the Apple App Store">
+              <div class="store-icon" aria-hidden="true">
+                <img src="apple-logo.png" alt="">
+              </div>
+              <div>
+                <small>Download on the</small>
+                <div>App Store</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <div class="links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <div class="links">
+            <a href="mailto:support@gab2.xyz">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <div>Gabet - Conversational budgeting for iOS</div>
       <div>&copy; 2025 GAB2XYZ Pte. Ltd. All Rights Reserved</div>
@@ -1024,6 +1267,7 @@
     const sections = document.querySelectorAll('section');
     const themeToggle = document.querySelector('.theme-toggle');
     const themeImages = document.querySelectorAll('[data-light-src][data-dark-src]');
+    const heroImage = document.querySelector('#home .phone-image');
     const themeKey = 'theme-preference';
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -1044,6 +1288,9 @@
         document.documentElement.removeAttribute('data-theme');
       } else {
         document.documentElement.dataset.theme = setting;
+      }
+      if (heroImage && heroFrames.length) {
+        setHeroFrame(heroIndex);
       }
       themeImages.forEach(img => {
         const nextSrc = activeTheme === 'dark' ? img.dataset.darkSrc : img.dataset.lightSrc;
@@ -1077,6 +1324,63 @@
     prefersDark.addEventListener('change', () => {
       if (themeSetting === 'auto') applyTheme('auto');
     });
+
+    // Hero carousel (auto-rotates every 5s, no controls)
+    const heroFrames = [
+      { light: 'hero-light.png', dark: 'hero-dark.png', alt: 'Chat-style budgeting mockup UI' },
+      { light: 'duplicate-transaction-light.png', dark: 'duplicate-transaction-dark.png', alt: 'Duplicate transaction check mockup UI' },
+      { light: 'transaction-list-light.png', dark: 'transaction-list-dark.png', alt: 'Transaction list mockup' },
+      { light: 'recurring-transaction-light.png', dark: 'recurring-transaction-dark.png', alt: 'Recurring transactions mockup' },
+      { light: 'customize-categories-light.png', dark: 'customize-categories-dark.png', alt: 'Customize categories mockup UI' },
+      { light: 'donut-chart-light.png', dark: 'donut-chart-dark.png', alt: 'Donut chart spend breakdown mockup' },
+      { light: 'bar-chart-light.png', dark: 'bar-chart-dark.png', alt: 'Bar chart period breakdown mockup' },
+      { light: 'budget-light.png', dark: 'budget-dark.png', alt: 'Budget mockup' },
+      { light: 'reports-light.png', dark: 'reports-dark.png', alt: 'Reports overview mockup' },
+      { light: 'income-savings-light.png', dark: 'income-savings-dark.png', alt: 'Income & savings mockup UI' },
+      { light: 'spaces-light.png', dark: 'spaces-dark.png', alt: 'Spaces mockup' },
+      { light: 'shared-spaces-light.png', dark: 'shared-spaces-dark.png', alt: 'Shared spaces mockup' },
+      { light: 'currency-convert-light.png', dark: 'currency-convert-dark.png', alt: 'Auto currency conversion mockup' },
+      { light: 'custom-categories-light.png', dark: 'custom-categories-dark.png', alt: 'Custom categories mockup UI' }
+    ];
+
+    let heroIndex = 0;
+
+    function setHeroFrame(nextIndex = 0) {
+      if (!heroImage || !heroFrames.length) return;
+      heroIndex = (nextIndex + heroFrames.length) % heroFrames.length;
+      const frame = heroFrames[heroIndex];
+      heroImage.dataset.lightSrc = frame.light;
+      heroImage.dataset.darkSrc = frame.dark;
+      heroImage.alt = frame.alt;
+      const activeTheme = resolvedTheme(themeSetting);
+      const nextSrc = activeTheme === 'dark' ? frame.dark : frame.light;
+      const currentSrc = heroImage.getAttribute('src');
+
+      const fadeIn = () => {
+        heroImage.classList.remove('is-fading');
+      };
+
+      heroImage.classList.add('is-fading');
+
+      const swapImage = () => {
+        heroImage.onload = () => fadeIn();
+        heroImage.setAttribute('src', nextSrc);
+        if (heroImage.complete) fadeIn();
+      };
+
+      if (currentSrc === nextSrc) {
+        // If same src (e.g., theme change to same asset), just fade back in
+        requestAnimationFrame(() => fadeIn());
+      } else {
+        // Wait for fade out, then swap
+        setTimeout(swapImage, 250);
+      }
+    }
+
+    if (heroImage && heroFrames.length) {
+      setHeroFrame(0);
+      setInterval(() => setHeroFrame(heroIndex + 1), 5000);
+    }
 
     function setSection(id) {
       sections.forEach(section => {
@@ -1120,6 +1424,45 @@
     }, { rootMargin: '-40% 0px -40% 0px', threshold: 0.1 });
 
     Object.values(sectionsMap).forEach(sec => observer.observe(sec));
+
+    const carousels = document.querySelectorAll('[data-carousel]');
+    carousels.forEach(track => {
+      const slides = Array.from(track.querySelectorAll('.feature-slide'));
+      if (slides.length <= 1) return;
+      const stage = track.closest('.feature-stage') || track.parentElement;
+      const controls = stage?.querySelector('.carousel-controls');
+      const prev = controls?.querySelector('[data-dir="prev"]');
+      const next = controls?.querySelector('[data-dir="next"]');
+      const dots = controls?.querySelector('.carousel-dots');
+      const label = track.dataset.carouselLabel || 'Feature';
+      let index = 0;
+
+      function renderDots() {
+        if (!dots) return;
+        dots.innerHTML = '';
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'dot';
+          dot.setAttribute('aria-label', `${label} slide ${i + 1}`);
+          dot.addEventListener('click', () => goTo(i));
+          dots.appendChild(dot);
+        });
+      }
+
+      function goTo(i) {
+        index = (i + slides.length) % slides.length;
+        slides.forEach((slide, idx) => slide.classList.toggle('active', idx === index));
+        if (dots) {
+          Array.from(dots.children).forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+        }
+      }
+
+      prev?.addEventListener('click', () => goTo(index - 1));
+      next?.addEventListener('click', () => goTo(index + 1));
+      renderDots();
+      goTo(0);
+    });
 
     applyTheme(themeSetting);
   </script>
