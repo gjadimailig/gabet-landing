@@ -6,45 +6,45 @@
   <title>Gabet - Conversational Budgeting</title>
   <style>
     :root {
-      --primary: #22C55E;
-      --primary-dark: #16A34A;
-      --tertiary: #15803D;
-      --accent-mint: #4ADE80;
-      --accent-teal: #14B8A6;
-      --accent-gold: #FACC15;
-      --text: #0F1A14;
-      --neutral700: #1F2B24;
-      --neutral500: #3B4B42;
-      --neutral300: #738379;
-      --border: #E1EDE5;
-      --surface-elevated: #F4FBF6;
+      --primary: #2563EB;
+      --primary-dark: #1E40AF;
+      --tertiary: #1E3A8A;
+      --accent-mint: #60A5FA;
+      --accent-teal: #93C5FD;
+      --accent-gold: #FBBF24;
+      --text: #0F172A;
+      --neutral700: #1E293B;
+      --neutral500: #475569;
+      --neutral300: #94A3B8;
+      --border: #E2E8F0;
+      --surface-elevated: #F8FAFF;
       --surface: #FFFFFF;
       --shadow-sm: 0 4px 10px rgba(0,0,0,0.08);
       --shadow-md: 0 20px 22px rgba(0,0,0,0.12);
-      --shadow-glow: 0 12px 15px rgba(34,197,94,0.25);
+      --shadow-glow: 0 12px 15px rgba(37,99,235,0.25);
       --radius-1: 8px;
       --radius-2: 16px;
       --radius-3: 28px;
       --radius-pill: 999px;
-      --bg-page: linear-gradient(135deg, #FFFFFF, #F4FBF6);
-      --bg-card: linear-gradient(180deg, #FFFFFF, #F7FFF9);
-      --bg-header: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(34,197,94,0.05));
-      --bg-button: linear-gradient(135deg, #22C55E, #16A34A);
+      --bg-page: linear-gradient(135deg, #FFFFFF, #EFF4FF);
+      --bg-card: linear-gradient(180deg, #FFFFFF, #F5F7FF);
+      --bg-header: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(37,99,235,0.05));
+      --bg-button: linear-gradient(135deg, #2563EB, #1E40AF);
       color-scheme: light;
     }
 
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --text: #E9F4EC;
-        --neutral700: #CFDCD4;
-        --neutral500: #A4B6AB;
-        --neutral300: #6A7C72;
-        --border: #2A352E;
-        --surface-elevated: #16211A;
-        --surface: #0F1510;
-        --bg-page: linear-gradient(135deg, #0B1912, #0F2418);
-        --bg-card: linear-gradient(180deg, #132017, #0F1A13);
-        --bg-header: linear-gradient(135deg, rgba(34,197,94,0.22), rgba(34,197,94,0.08));
+        --text: #E2E8F0;
+        --neutral700: #CBD5E1;
+        --neutral500: #94A3B8;
+        --neutral300: #64748B;
+        --border: #334155;
+        --surface-elevated: #1E293B;
+        --surface: #0F172A;
+        --bg-page: linear-gradient(135deg, #0F172A, #1E293B);
+        --bg-card: linear-gradient(180deg, #1E293B, #0F172A);
+        --bg-header: linear-gradient(135deg, rgba(37,99,235,0.22), rgba(37,99,235,0.08));
       }
     }
 
@@ -182,16 +182,16 @@
     .theme-toggle[data-state="dark"] .icon-moon { display: block; }
 
     :root[data-theme="light"] {
-      --text: #0F1A14;
-      --neutral700: #1F2B24;
-      --neutral500: #3B4B42;
-      --neutral300: #738379;
-      --border: #E1EDE5;
-      --surface-elevated: #F4FBF6;
+      --text: #0F172A;
+      --neutral700: #1E293B;
+      --neutral500: #475569;
+      --neutral300: #94A3B8;
+      --border: #E2E8F0;
+      --surface-elevated: #F8FAFF;
       --surface: #FFFFFF;
-      --bg-page: linear-gradient(135deg, #FFFFFF, #F4FBF6);
-      --bg-card: linear-gradient(180deg, #FFFFFF, #F7FFF9);
-      --bg-header: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(34,197,94,0.05));
+      --bg-page: linear-gradient(135deg, #FFFFFF, #EFF4FF);
+      --bg-card: linear-gradient(180deg, #FFFFFF, #F5F7FF);
+      --bg-header: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(37,99,235,0.05));
       color-scheme: light;
     }
 
@@ -222,7 +222,7 @@
       }
 
       :root:not([data-theme="light"]) .mock-phone {
-        background: linear-gradient(180deg, rgba(20,184,166,0.1), rgba(34,197,94,0.08));
+        background: linear-gradient(180deg, rgba(37,99,235,0.12), rgba(30,64,175,0.1));
         border-color: rgba(255,255,255,0.12);
         color: var(--text);
       }
@@ -234,8 +234,8 @@
       }
 
       :root:not([data-theme="light"]) .price-card.featured {
-        background: linear-gradient(180deg, rgba(34,197,94,0.14), rgba(20,184,166,0.08));
-        border-color: rgba(34,197,94,0.4);
+        background: linear-gradient(180deg, rgba(37,99,235,0.16), rgba(30,64,175,0.1));
+        border-color: rgba(37,99,235,0.4);
         box-shadow: 0 28px 44px rgba(0,0,0,0.4);
       }
 
@@ -273,16 +273,16 @@
     }
 
     :root[data-theme="dark"] {
-      --text: #E9F4EC;
-      --neutral700: #CFDCD4;
-      --neutral500: #A4B6AB;
-      --neutral300: #6A7C72;
-      --border: #2A352E;
-      --surface-elevated: #16211A;
-      --surface: #0F1510;
-      --bg-page: linear-gradient(135deg, #0B1912, #0F2418);
-      --bg-card: linear-gradient(180deg, #132017, #0F1A13);
-      --bg-header: linear-gradient(135deg, rgba(34,197,94,0.22), rgba(34,197,94,0.08));
+      --text: #E2E8F0;
+      --neutral700: #CBD5E1;
+      --neutral500: #94A3B8;
+      --neutral300: #64748B;
+      --border: #334155;
+      --surface-elevated: #1E293B;
+      --surface: #0F172A;
+      --bg-page: linear-gradient(135deg, #0F172A, #1E293B);
+      --bg-card: linear-gradient(180deg, #1E293B, #0F172A);
+      --bg-header: linear-gradient(135deg, rgba(37,99,235,0.22), rgba(37,99,235,0.08));
       color-scheme: dark;
     }
 
@@ -312,7 +312,7 @@
     }
 
     :root[data-theme="dark"] .mock-phone {
-      background: linear-gradient(180deg, rgba(20,184,166,0.1), rgba(34,197,94,0.08));
+      background: linear-gradient(180deg, rgba(37,99,235,0.12), rgba(30,64,175,0.1));
       border-color: rgba(255,255,255,0.12);
       color: var(--text);
     }
@@ -324,8 +324,8 @@
     }
 
     :root[data-theme="dark"] .price-card.featured {
-      background: linear-gradient(180deg, rgba(34,197,94,0.14), rgba(20,184,166,0.08));
-      border-color: rgba(34,197,94,0.4);
+      background: linear-gradient(180deg, rgba(37,99,235,0.16), rgba(30,64,175,0.1));
+      border-color: rgba(37,99,235,0.4);
       box-shadow: 0 28px 44px rgba(0,0,0,0.4);
     }
 
@@ -487,8 +487,8 @@
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
-      background: rgba(20, 184, 166, 0.08);
-      color: var(--accent-teal);
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--primary);
       border-radius: var(--radius-pill);
       border: 1px solid var(--border);
       width: fit-content;
@@ -551,7 +551,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #0F1510;
+      background: #0F172A;
       color: #fff;
       padding: 12px 16px;
       border-radius: 14px;
@@ -593,8 +593,8 @@
     }
 
     .screen-card {
-      background: #F4FBF6;
-      border: 1px solid rgba(34,197,94,0.12);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: var(--radius-2);
       padding: 12px 12px 16px;
       box-shadow: var(--shadow-sm);
@@ -617,7 +617,7 @@
 
     .mock-phone {
       width: 100%;
-      background: #F1FBF5;
+      background: var(--surface-elevated);
       border-radius: 18px;
       padding: 10px;
       border: 1px solid var(--border);
@@ -650,7 +650,7 @@
     }
 
     .price-card {
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.8);
       border: 1px solid var(--border);
       border-radius: var(--radius-2);
       padding: 20px;
@@ -664,9 +664,9 @@
     }
 
     .price-card.featured {
-      background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(20,184,166,0.08)), var(--surface);
+      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(30,64,175,0.1)), var(--surface);
       box-shadow: var(--shadow-md);
-      border-color: rgba(34,197,94,0.4);
+      border-color: rgba(37,99,235,0.4);
     }
 
     .price {
@@ -735,14 +735,14 @@
       position: absolute;
       width: 240px;
       height: 240px;
-      background: radial-gradient(circle at center, rgba(34,197,94,0.24), transparent 60%);
+      background: radial-gradient(circle at center, rgba(37,99,235,0.28), transparent 60%);
       filter: blur(30px);
       opacity: 0.8;
       z-index: -1;
     }
 
     .glow.a { top: 12%; left: 10%; }
-    .glow.b { bottom: 16%; right: 8%; background: radial-gradient(circle at center, rgba(20,184,166,0.28), transparent 62%); }
+    .glow.b { bottom: 16%; right: 8%; background: radial-gradient(circle at center, rgba(30,64,175,0.32), transparent 62%); }
 
     @media (max-width: 1024px) {
       section {
@@ -957,6 +957,28 @@
             </div>
             <div class="label">Transaction List</div>
           </div>
+          <div class="screen-card">
+            <div class="mock-phone">
+              <img
+                class="phone-image"
+                src="recurring-transaction-light.png"
+                data-light-src="recurring-transaction-light.png"
+                data-dark-src="recurring-transaction-dark.png"
+                alt="Recurring transactions mockup">
+            </div>
+            <div class="label">Recurring Transactions</div>
+          </div>
+          <div class="screen-card">
+            <div class="mock-phone">
+              <img
+                class="phone-image"
+                src="reports-light.png"
+                data-light-src="reports-light.png"
+                data-dark-src="reports-dark.png"
+                alt="Reports overview mockup">
+            </div>
+            <div class="label">Reports</div>
+          </div>
         </div>
       </section>
 
@@ -979,14 +1001,13 @@
           </div>
           <div class="price-card featured">
             <div class="label">Plus</div>
-            <div class="price">$2.99 <small>/ month</small></div>
+            <div class="price">$9.99 <small>/ month</small></div>
             <div class="feature-list">
               <div><span class="check">&check;</span> Unlimited history</div>
               <div><span class="check">&check;</span> Pattern alerts & nudges</div>
               <div><span class="check">&check;</span> Priority support</div>
               <div><span class="check">&check;</span> Export & shared plans</div>
             </div>
-            <div class="price body" style="margin-top:6px;">$29.99 <small>/ year (save 16%)</small></div>
           </div>
         </div>
       </section>
