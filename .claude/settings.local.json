@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/gabdimailig/Desktop/gabet-gab2-xyz log --oneline -20)"
+    ]
+  }
+}
