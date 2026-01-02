@@ -73,9 +73,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 4px;
-      position: relative;
-      z-index: 2;
+      padding: 12px 14px;
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-pill);
+      box-shadow: none;
+      backdrop-filter: none;
     }
 
     .brand {
@@ -367,6 +373,12 @@
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.18);
       box-shadow: 0 14px 26px rgba(0,0,0,0.35);
+    }
+
+    :root[data-theme="dark"] header {
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
 
     :root[data-theme="dark"] .theme-toggle svg {
@@ -1537,7 +1549,7 @@
               <svg viewBox="0 0 24 24"><path d="M6 7.5h12M6 12h12M6 16.5h7"/><path d="M6 7.5c0 2.5 1.5 4.5 5 4.5s5 2 5 4.5"/></svg>
             </div>
             <h3>Auto Categorization</h3>
-            <p>SMS-style logging so Gabet applies your rules automatically.</p>
+            <p>SMS-style logging then Gabet applies your rules automatically.</p>
           </div>
           <div class="mini-feature">
             <div class="mini-icon" aria-hidden="true">
@@ -1787,8 +1799,18 @@
           if (el) {
             const header = document.querySelector('header');
             const headerHeight = header ? header.offsetHeight : 0;
+
+            // For features section, scroll to the eyebrow element instead
+            let scrollTarget = el;
+            if (target === 'features') {
+              const eyebrow = el.querySelector('.eyebrow');
+              if (eyebrow) scrollTarget = eyebrow;
+            }
+
             const offset = headerHeight + 24; // header height + gap spacing
-            window.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth' });
+            // Use viewport-relative position to avoid missing parent offsets
+            const targetTop = scrollTarget.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top: targetTop - offset, behavior: 'smooth' });
           }
           document.querySelectorAll('.nav-btn').forEach(n => {
             n.classList.toggle('active', n.dataset.target === target);
