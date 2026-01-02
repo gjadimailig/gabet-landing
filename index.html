@@ -1785,7 +1785,10 @@
         if (target) {
           const el = document.getElementById(target);
           if (el) {
-            window.scrollTo({ top: el.offsetTop - 32, behavior: 'smooth' });
+            const header = document.querySelector('header');
+            const headerHeight = header ? header.offsetHeight : 0;
+            const offset = headerHeight + 24; // header height + gap spacing
+            window.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth' });
           }
           document.querySelectorAll('.nav-btn').forEach(n => {
             n.classList.toggle('active', n.dataset.target === target);
