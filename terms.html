@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - Gabet</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1E40AF;
+      --tertiary: #1E3A8A;
+      --accent-mint: #60A5FA;
+      --accent-teal: #93C5FD;
+      --accent-gold: #FBBF24;
+      --text: #0F172A;
+      --neutral700: #1E293B;
+      --neutral500: #475569;
+      --neutral300: #94A3B8;
+      --border: #E2E8F0;
+      --surface-elevated: #F8FAFF;
+      --surface: #FFFFFF;
+      --shadow-sm: 0 4px 10px rgba(0,0,0,0.08);
+      --shadow-md: 0 20px 22px rgba(0,0,0,0.12);
+      --shadow-glow: 0 12px 15px rgba(37,99,235,0.25);
+      --radius-1: 8px;
+      --radius-2: 16px;
+      --radius-3: 28px;
+      --radius-pill: 999px;
+      --bg-page: linear-gradient(135deg, #FFFFFF, #EFF4FF);
+      --bg-card: linear-gradient(180deg, #FFFFFF, #F5F7FF);
+      --bg-header: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(37,99,235,0.05));
+      --bg-button: linear-gradient(135deg, #2563EB, #1E40AF);
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --text: #E2E8F0;
+        --neutral700: #CBD5E1;
+        --neutral500: #94A3B8;
+        --neutral300: #64748B;
+        --border: #334155;
+        --surface-elevated: #1E293B;
+        --surface: #0F172A;
+        --bg-page: linear-gradient(135deg, #0F172A, #1E293B);
+        --bg-card: linear-gradient(180deg, #1E293B, #0F172A);
+        --bg-header: linear-gradient(135deg, rgba(37,99,235,0.22), rgba(37,99,235,0.08));
+      }
+    }
+
+    :root[data-theme="light"] {
+      --text: #0F172A;
+      --neutral700: #1E293B;
+      --neutral500: #475569;
+      --neutral300: #94A3B8;
+      --border: #E2E8F0;
+      --surface-elevated: #F8FAFF;
+      --surface: #FFFFFF;
+      --bg-page: linear-gradient(135deg, #FFFFFF, #EFF4FF);
+      --bg-card: linear-gradient(180deg, #FFFFFF, #F5F7FF);
+      --bg-header: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(37,99,235,0.05));
+      color-scheme: light;
+    }
+
+    :root[data-theme="dark"] {
+      --text: #E2E8F0;
+      --neutral700: #CBD5E1;
+      --neutral500: #94A3B8;
+      --neutral300: #64748B;
+      --border: #334155;
+      --surface-elevated: #1E293B;
+      --surface: #0F172A;
+      --bg-page: linear-gradient(135deg, #0F172A, #1E293B);
+      --bg-card: linear-gradient(180deg, #1E293B, #0F172A);
+      --bg-header: linear-gradient(135deg, rgba(37,99,235,0.22), rgba(37,99,235,0.08));
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-y: auto;
+      font-family: -apple-system, system-ui, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text);
+    }
+
+    .chrome {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 24px 32px;
+      gap: 24px;
+      position: relative;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-pill);
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 18px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: none;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: none;
+    }
+
+    .brand-logo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.65);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(12px);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+      display: none;
+      color: var(--neutral700);
+    }
+
+    .theme-toggle[data-state="light"] .icon-sun { display: block; }
+    .theme-toggle[data-state="dark"] .icon-moon { display: block; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.18);
+        box-shadow: 0 14px 26px rgba(0,0,0,0.35);
+      }
+
+      :root:not([data-theme="light"]) .theme-toggle svg {
+        color: var(--text);
+      }
+    }
+
+    :root[data-theme="dark"] .theme-toggle {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.35);
+    }
+
+    :root[data-theme="dark"] .theme-toggle svg {
+      color: var(--text);
+    }
+
+    main {
+      flex: 1;
+      width: min(800px, calc(100% - 32px));
+      margin: 0 auto 80px;
+    }
+
+    .policy-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .policy-header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+
+    .policy-header .company {
+      font-size: 16px;
+      color: var(--neutral500);
+      margin: 0 0 8px;
+    }
+
+    .policy-header .effective-date {
+      font-size: 14px;
+      color: var(--neutral300);
+      margin: 0;
+    }
+
+    .policy-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-2);
+      padding: 32px 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .policy-content h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 32px 0 16px;
+      color: var(--text);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .policy-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .policy-content h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 24px 0 12px;
+      color: var(--neutral700);
+    }
+
+    .policy-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--neutral500);
+      margin: 0 0 16px;
+    }
+
+    .policy-content ul {
+      margin: 0 0 16px;
+      padding-left: 24px;
+    }
+
+    .policy-content li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--neutral500);
+      margin-bottom: 8px;
+    }
+
+    .policy-content strong {
+      color: var(--neutral700);
+      font-weight: 600;
+    }
+
+    .policy-content a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .policy-content a:hover {
+      text-decoration: underline;
+    }
+
+    .highlight-box {
+      background: rgba(37, 99, 235, 0.06);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      border-radius: var(--radius-1);
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+    }
+
+    .highlight-box ul {
+      margin: 8px 0 0;
+    }
+
+    .highlight-box li:last-child {
+      margin-bottom: 0;
+    }
+
+    .warning-box {
+      background: rgba(251, 191, 36, 0.08);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+      border-radius: var(--radius-1);
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .warning-box p {
+      margin: 0;
+      color: var(--neutral700);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--neutral300);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--neutral500);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .glow {
+      position: fixed;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle at center, rgba(37,99,235,0.28), transparent 60%);
+      filter: blur(30px);
+      opacity: 0.8;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .glow.a { top: 12%; left: 10%; }
+    .glow.b { bottom: 16%; right: 8%; background: radial-gradient(circle at center, rgba(30,64,175,0.32), transparent 62%); }
+
+    @media (max-width: 768px) {
+      .chrome {
+        padding: 16px 20px;
+        gap: 16px;
+      }
+
+      header {
+        padding: 8px 0;
+        top: 8px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+      }
+
+      .theme-toggle {
+        width: 38px;
+        height: 38px;
+      }
+
+      main {
+        margin-bottom: 40px;
+      }
+
+      .policy-header h1 {
+        font-size: 28px;
+      }
+
+      .policy-content {
+        padding: 24px 20px;
+      }
+
+      .policy-content h2 {
+        font-size: 20px;
+      }
+
+      .policy-content h3 {
+        font-size: 16px;
+      }
+
+      .glow {
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="chrome">
+    <div class="glow a"></div>
+    <div class="glow b"></div>
+
+    <header>
+      <a href="index.html" class="brand">
+        <div class="brand-mark">
+          <img class="brand-logo" src="images/logo.png" alt="Gabet logo">
+        </div>
+        <span>Gabet</span>
+      </a>
+      <button class="theme-toggle" aria-label="Toggle dark mode" data-state="light">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="currentColor"/>
+          <g stroke="currentColor" stroke-linecap="round" stroke-width="1.6" fill="none">
+            <path d="M12 3.25v2.5M12 18.25v2.5M4.75 12h-2.5M21.75 12h-2.5M6.5 6.5 4.75 4.75M19.25 19.25 17.5 17.5M17.5 6.5l1.75-1.75M6.5 17.5 4.75 19.25"/>
+          </g>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M20.182 14.445a8.75 8.75 0 0 1-10.627-10.46 1 1 0 0 0-1.41-1.14A10.75 10.75 0 1 0 21.75 16a1 1 0 0 0-1.568-1.555Z"/>
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <div class="policy-header">
+        <h1>Terms of Service</h1>
+        <p class="company">GAB2XYZ Pte. Ltd.</p>
+        <p class="effective-date">Effective Date: January 14, 2026</p>
+      </div>
+
+      <div class="policy-content">
+        <h2>1. Agreement to Terms</h2>
+        <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and GAB2XYZ Pte. Ltd. ("Company," "we," "us," or "our") governing your access to and use of the Gabet mobile application (the "App").</p>
+        <p>By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree to these Terms, do not use the App.</p>
+
+        <h2>2. Eligibility</h2>
+        <p>You must be at least <strong>13 years of age</strong> to use the App. By using the App, you represent and warrant that you meet this age requirement.</p>
+        <p>If you are under 18 years of age, you represent that you have your parent or guardian's permission to use the App and that they have read and agree to these Terms on your behalf.</p>
+
+        <h2>3. Account Registration</h2>
+        <p>To use the App, you must create an account using a valid email address and password. You agree to:</p>
+        <ul>
+          <li>Provide accurate and complete registration information</li>
+          <li>Maintain the security and confidentiality of your login credentials</li>
+          <li>Notify us immediately of any unauthorized use of your account</li>
+          <li>Accept responsibility for all activities that occur under your account</li>
+        </ul>
+        <p>We reserve the right to disable any account at any time if we believe you have violated these Terms.</p>
+
+        <h2>4. Description of Service</h2>
+        <p>Gabet is a personal finance tracking application that allows you to:</p>
+        <ul>
+          <li>Log and categorize income and expenses</li>
+          <li>Track recurring transactions</li>
+          <li>View spending breakdowns and reports</li>
+          <li>Create and manage spending categories</li>
+          <li>Collaborate with others in shared spaces</li>
+          <li>Use AI-powered features for transaction categorization and receipt extraction</li>
+        </ul>
+
+        <h2>5. Subscription and Payments</h2>
+
+        <h3>5.1 Free and Paid Tiers</h3>
+        <p>The App offers both free and paid subscription tiers:</p>
+        <ul>
+          <li><strong>Free Tier:</strong> Limited AI-powered message processing credits per month</li>
+          <li><strong>Gabet Plus:</strong> Enhanced AI credits and additional features</li>
+        </ul>
+
+        <h3>5.2 Payment Processing</h3>
+        <p>All payments are processed through Apple's App Store. By subscribing to Gabet Plus, you agree to Apple's terms and conditions for in-app purchases.</p>
+
+        <h3>5.3 Refunds</h3>
+        <p>All refund requests are handled by Apple in accordance with their refund policies. To request a refund, please contact Apple directly through your purchase history or the App Store.</p>
+
+        <h3>5.4 Subscription Cancellation</h3>
+        <p>You may cancel your subscription at any time through your Apple ID settings. Cancellation will take effect at the end of your current billing period.</p>
+
+        <h2>6. User Content and Conduct</h2>
+
+        <h3>6.1 Your Content</h3>
+        <p>You retain ownership of all content you submit to the App, including transactions, messages, and photos. By submitting content, you grant us a limited license to store, process, and display your content solely for the purpose of providing the App's services.</p>
+
+        <h3>6.2 Prohibited Conduct</h3>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Use the App for any illegal purpose or in violation of any laws</li>
+          <li>Submit false, misleading, or fraudulent information</li>
+          <li>Attempt to gain unauthorized access to the App or other users' accounts</li>
+          <li>Interfere with or disrupt the App's functionality</li>
+          <li>Use automated systems or bots to access the App</li>
+          <li>Abuse, spam, or misuse AI-powered features</li>
+          <li>Reverse engineer, decompile, or disassemble the App</li>
+          <li>Use the App to harass, threaten, or harm others</li>
+        </ul>
+
+        <h3>6.3 Your Responsibility for Content</h3>
+        <div class="warning-box">
+          <p><strong>Important:</strong> You are solely responsible for any personally identifiable information you include in your content. We do not automatically detect, hide, or remove sensitive information from transactions, messages, or photos you submit. Review your content before sharing.</p>
+        </div>
+
+        <h2>7. AI Features</h2>
+
+        <h3>7.1 AI-Powered Features</h3>
+        <p>The App uses artificial intelligence for:</p>
+        <ul>
+          <li>Automatic transaction categorization</li>
+          <li>Receipt text extraction</li>
+        </ul>
+
+        <h3>7.2 AI Limitations</h3>
+        <div class="highlight-box">
+          <p><strong>AI features are provided "as is" and may not always be accurate.</strong> You should review and verify all AI-generated categorizations and extracted data. We are not responsible for errors or inaccuracies in AI-generated content.</p>
+        </div>
+
+        <h3>7.3 Third-Party AI Services</h3>
+        <p>AI features are powered by third-party providers (Anthropic and OpenAI). By using AI features, you consent to your data being processed by these providers as described in our <a href="privacy.html">Privacy Policy</a>.</p>
+
+        <h2>8. Financial Disclaimer</h2>
+        <div class="warning-box">
+          <p><strong>IMPORTANT: Gabet is NOT a financial advisor.</strong></p>
+          <p>The App is a personal finance tracking tool only. It does not provide financial, investment, tax, or legal advice. Any information displayed in the App is for informational purposes only and should not be relied upon for making financial decisions.</p>
+          <p><strong>You assume all risk</strong> associated with your financial decisions. We strongly recommend consulting with qualified financial professionals before making significant financial decisions.</p>
+        </div>
+
+        <h2>9. Intellectual Property</h2>
+
+        <h3>9.1 Our Intellectual Property</h3>
+        <p>The App, including its design, features, code, graphics, and trademarks, is owned by GAB2XYZ Pte. Ltd. and protected by intellectual property laws. You may not copy, modify, distribute, or create derivative works based on our intellectual property without our written consent.</p>
+
+        <h3>9.2 Your Data</h3>
+        <p>You retain all rights to your personal data and content. We claim no ownership over your financial data, transactions, or other content you create in the App.</p>
+
+        <h2>10. Privacy</h2>
+        <p>Your privacy is important to us. Our collection and use of your personal information is governed by our <a href="privacy.html">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+
+        <h2>11. Account Suspension and Termination</h2>
+
+        <h3>11.1 Termination by You</h3>
+        <p>You may request to delete your account at any time by emailing <a href="mailto:support@gab2.xyz">support@gab2.xyz</a> from your registered email address.</p>
+
+        <h3>11.2 Termination by Us</h3>
+        <p>We may suspend or terminate your account:</p>
+        <ul>
+          <li><strong>Immediately and without notice</strong> if you violate these Terms, abuse our services, or engage in fraudulent activity</li>
+          <li><strong>With 30 days notice</strong> for any other reason, including discontinuation of the service</li>
+        </ul>
+
+        <h3>11.3 Effect of Termination</h3>
+        <p>Upon termination:</p>
+        <ul>
+          <li>Your right to use the App will immediately cease</li>
+          <li>Your subscription will be cancelled (no refund for the current period)</li>
+          <li>Your data will be deleted in accordance with our Privacy Policy</li>
+        </ul>
+
+        <h2>12. Data Export</h2>
+        <p>If we terminate your account with notice (not for Terms violations), you will have <strong>30 days</strong> from the termination notice to export your data through the App before it is permanently deleted.</p>
+        <p>If your account is terminated immediately for Terms violations, you will not have access to export your data.</p>
+
+        <h2>13. Disclaimer of Warranties</h2>
+        <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+        <ul>
+          <li>WARRANTIES OF MERCHANTABILITY</li>
+          <li>FITNESS FOR A PARTICULAR PURPOSE</li>
+          <li>NON-INFRINGEMENT</li>
+          <li>ACCURACY OR RELIABILITY OF DATA</li>
+          <li>UNINTERRUPTED OR ERROR-FREE SERVICE</li>
+        </ul>
+        <p>We do not warrant that the App will meet your requirements or that any errors will be corrected.</p>
+
+        <h2>14. Limitation of Liability</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
+        <ul>
+          <li>WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES</li>
+          <li>WE SHALL NOT BE LIABLE FOR ANY LOSS OF PROFITS, DATA, USE, OR GOODWILL</li>
+          <li>OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE 12 MONTHS PRECEDING THE CLAIM, OR SGD $100, WHICHEVER IS GREATER</li>
+        </ul>
+        <p>These limitations apply regardless of the legal theory on which the claim is based.</p>
+
+        <h2>15. Indemnification</h2>
+        <p>You agree to indemnify, defend, and hold harmless GAB2XYZ Pte. Ltd. and its officers, directors, employees, and agents from any claims, damages, losses, or expenses (including reasonable legal fees) arising from:</p>
+        <ul>
+          <li>Your use of the App</li>
+          <li>Your violation of these Terms</li>
+          <li>Your violation of any third-party rights</li>
+          <li>Your content submitted to the App</li>
+        </ul>
+
+        <h2>16. Dispute Resolution</h2>
+
+        <h3>16.1 Informal Resolution</h3>
+        <p>Before initiating formal dispute resolution, you agree to first contact us at <a href="mailto:support@gab2.xyz">support@gab2.xyz</a> to attempt to resolve the dispute informally.</p>
+
+        <h3>16.2 Binding Arbitration</h3>
+        <p>If we cannot resolve the dispute informally within 30 days, any dispute arising from these Terms or the App shall be resolved by <strong>binding arbitration</strong> administered by the Singapore International Arbitration Centre (SIAC) in accordance with its rules.</p>
+        <ul>
+          <li>The arbitration shall be conducted in Singapore</li>
+          <li>The language of arbitration shall be English</li>
+          <li>The arbitrator's decision shall be final and binding</li>
+        </ul>
+
+        <h3>16.3 Class Action Waiver</h3>
+        <div class="highlight-box">
+          <p><strong>You agree to resolve disputes only on an individual basis.</strong> You waive any right to participate in class actions, class arbitrations, or representative actions. This waiver applies to the fullest extent permitted by law.</p>
+        </div>
+
+        <h3>16.4 Exceptions</h3>
+        <p>Notwithstanding the above, either party may seek injunctive relief in any court of competent jurisdiction to prevent the actual or threatened infringement of intellectual property rights.</p>
+
+        <h2>17. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of <strong>Singapore</strong>, without regard to its conflict of law provisions.</p>
+
+        <h2>18. Changes to Terms</h2>
+        <p>We may update these Terms from time to time. We will notify you of material changes by:</p>
+        <ul>
+          <li>Posting the updated Terms in the App</li>
+          <li>Updating the "Effective Date" at the top of these Terms</li>
+          <li>Sending you a notification through the App (for significant changes)</li>
+        </ul>
+        <p>Your continued use of the App after changes become effective constitutes your acceptance of the updated Terms.</p>
+
+        <h2>19. General Provisions</h2>
+
+        <h3>19.1 Entire Agreement</h3>
+        <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding the App.</p>
+
+        <h3>19.2 Severability</h3>
+        <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
+
+        <h3>19.3 Waiver</h3>
+        <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of that right or provision.</p>
+
+        <h3>19.4 Assignment</h3>
+        <p>You may not assign or transfer these Terms without our prior written consent. We may assign these Terms without restriction.</p>
+
+        <h2>20. Contact Us</h2>
+        <p>If you have questions about these Terms, please contact us at:</p>
+        <p><strong>GAB2XYZ Pte. Ltd.</strong><br>
+        Email: <a href="mailto:support@gab2.xyz">support@gab2.xyz</a></p>
+
+        <p style="text-align: center; margin-top: 32px; color: var(--neutral300); font-size: 14px;"><em>Last Updated: January 14, 2026</em></p>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 GAB2XYZ Pte. Ltd. All Rights Reserved. | <a href="index.html">Back to Home</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeKey = 'theme-preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const getStoredTheme = () => {
+      const stored = localStorage.getItem(themeKey);
+      return stored === 'light' || stored === 'dark' ? stored : 'auto';
+    };
+
+    let themeSetting = getStoredTheme();
+
+    const resolvedTheme = (setting) => setting === 'auto'
+      ? (prefersDark.matches ? 'dark' : 'light')
+      : setting;
+
+    function applyTheme(setting) {
+      const activeTheme = resolvedTheme(setting);
+      if (setting === 'auto') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.dataset.theme = setting;
+      }
+      if (themeToggle) {
+        themeToggle.dataset.state = activeTheme;
+        themeToggle.setAttribute('aria-label', `Switch to ${activeTheme === 'dark' ? 'light' : 'dark'} mode`);
+      }
+    }
+
+    function setTheme(setting) {
+      themeSetting = setting;
+      if (setting === 'auto') {
+        localStorage.removeItem(themeKey);
+      } else {
+        localStorage.setItem(themeKey, setting);
+      }
+      applyTheme(setting);
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = resolvedTheme(themeSetting) === 'dark' ? 'light' : 'dark';
+        setTheme(nextTheme);
+      });
+    }
+
+    prefersDark.addEventListener('change', () => {
+      if (themeSetting === 'auto') applyTheme('auto');
+    });
+
+    applyTheme(themeSetting);
+  </script>
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Gabet</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1E40AF;
+      --tertiary: #1E3A8A;
+      --accent-mint: #60A5FA;
+      --accent-teal: #93C5FD;
+      --accent-gold: #FBBF24;
+      --text: #0F172A;
+      --neutral700: #1E293B;
+      --neutral500: #475569;
+      --neutral300: #94A3B8;
+      --border: #E2E8F0;
+      --surface-elevated: #F8FAFF;
+      --surface: #FFFFFF;
+      --shadow-sm: 0 4px 10px rgba(0,0,0,0.08);
+      --shadow-md: 0 20px 22px rgba(0,0,0,0.12);
+      --shadow-glow: 0 12px 15px rgba(37,99,235,0.25);
+      --radius-1: 8px;
+      --radius-2: 16px;
+      --radius-3: 28px;
+      --radius-pill: 999px;
+      --bg-page: linear-gradient(135deg, #FFFFFF, #EFF4FF);
+      --bg-card: linear-gradient(180deg, #FFFFFF, #F5F7FF);
+      --bg-header: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(37,99,235,0.05));
+      --bg-button: linear-gradient(135deg, #2563EB, #1E40AF);
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --text: #E2E8F0;
+        --neutral700: #CBD5E1;
+        --neutral500: #94A3B8;
+        --neutral300: #64748B;
+        --border: #334155;
+        --surface-elevated: #1E293B;
+        --surface: #0F172A;
+        --bg-page: linear-gradient(135deg, #0F172A, #1E293B);
+        --bg-card: linear-gradient(180deg, #1E293B, #0F172A);
+        --bg-header: linear-gradient(135deg, rgba(37,99,235,0.22), rgba(37,99,235,0.08));
+      }
+    }
+
+    :root[data-theme="light"] {
+      --text: #0F172A;
+      --neutral700: #1E293B;
+      --neutral500: #475569;
+      --neutral300: #94A3B8;
+      --border: #E2E8F0;
+      --surface-elevated: #F8FAFF;
+      --surface: #FFFFFF;
+      --bg-page: linear-gradient(135deg, #FFFFFF, #EFF4FF);
+      --bg-card: linear-gradient(180deg, #FFFFFF, #F5F7FF);
+      --bg-header: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(37,99,235,0.05));
+      color-scheme: light;
+    }
+
+    :root[data-theme="dark"] {
+      --text: #E2E8F0;
+      --neutral700: #CBD5E1;
+      --neutral500: #94A3B8;
+      --neutral300: #64748B;
+      --border: #334155;
+      --surface-elevated: #1E293B;
+      --surface: #0F172A;
+      --bg-page: linear-gradient(135deg, #0F172A, #1E293B);
+      --bg-card: linear-gradient(180deg, #1E293B, #0F172A);
+      --bg-header: linear-gradient(135deg, rgba(37,99,235,0.22), rgba(37,99,235,0.08));
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-y: auto;
+      font-family: -apple-system, system-ui, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text);
+    }
+
+    .chrome {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 24px 32px;
+      gap: 24px;
+      position: relative;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-pill);
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 18px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: none;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: none;
+    }
+
+    .brand-logo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.65);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(12px);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+      display: none;
+      color: var(--neutral700);
+    }
+
+    .theme-toggle[data-state="light"] .icon-sun { display: block; }
+    .theme-toggle[data-state="dark"] .icon-moon { display: block; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.18);
+        box-shadow: 0 14px 26px rgba(0,0,0,0.35);
+      }
+
+      :root:not([data-theme="light"]) .theme-toggle svg {
+        color: var(--text);
+      }
+    }
+
+    :root[data-theme="dark"] .theme-toggle {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.35);
+    }
+
+    :root[data-theme="dark"] .theme-toggle svg {
+      color: var(--text);
+    }
+
+    main {
+      flex: 1;
+      width: min(800px, calc(100% - 32px));
+      margin: 0 auto 80px;
+    }
+
+    .policy-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .policy-header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+
+    .policy-header .company {
+      font-size: 16px;
+      color: var(--neutral500);
+      margin: 0 0 8px;
+    }
+
+    .policy-header .effective-date {
+      font-size: 14px;
+      color: var(--neutral300);
+      margin: 0;
+    }
+
+    .policy-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-2);
+      padding: 32px 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .policy-content h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 32px 0 16px;
+      color: var(--text);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .policy-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .policy-content h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 24px 0 12px;
+      color: var(--neutral700);
+    }
+
+    .policy-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--neutral500);
+      margin: 0 0 16px;
+    }
+
+    .policy-content ul {
+      margin: 0 0 16px;
+      padding-left: 24px;
+    }
+
+    .policy-content li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--neutral500);
+      margin-bottom: 8px;
+    }
+
+    .policy-content strong {
+      color: var(--neutral700);
+      font-weight: 600;
+    }
+
+    .policy-content a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .policy-content a:hover {
+      text-decoration: underline;
+    }
+
+    .highlight-box {
+      background: rgba(37, 99, 235, 0.06);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      border-radius: var(--radius-1);
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+    }
+
+    .highlight-box ul {
+      margin: 8px 0 0;
+    }
+
+    .highlight-box li:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--neutral300);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--neutral500);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .glow {
+      position: fixed;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle at center, rgba(37,99,235,0.28), transparent 60%);
+      filter: blur(30px);
+      opacity: 0.8;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .glow.a { top: 12%; left: 10%; }
+    .glow.b { bottom: 16%; right: 8%; background: radial-gradient(circle at center, rgba(30,64,175,0.32), transparent 62%); }
+
+    @media (max-width: 768px) {
+      .chrome {
+        padding: 16px 20px;
+        gap: 16px;
+      }
+
+      header {
+        padding: 8px 0;
+        top: 8px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+      }
+
+      .theme-toggle {
+        width: 38px;
+        height: 38px;
+      }
+
+      main {
+        margin-bottom: 40px;
+      }
+
+      .policy-header h1 {
+        font-size: 28px;
+      }
+
+      .policy-content {
+        padding: 24px 20px;
+      }
+
+      .policy-content h2 {
+        font-size: 20px;
+      }
+
+      .policy-content h3 {
+        font-size: 16px;
+      }
+
+      .glow {
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="chrome">
+    <div class="glow a"></div>
+    <div class="glow b"></div>
+
+    <header>
+      <a href="index.html" class="brand">
+        <div class="brand-mark">
+          <img class="brand-logo" src="images/logo.png" alt="Gabet logo">
+        </div>
+        <span>Gabet</span>
+      </a>
+      <button class="theme-toggle" aria-label="Toggle dark mode" data-state="light">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="currentColor"/>
+          <g stroke="currentColor" stroke-linecap="round" stroke-width="1.6" fill="none">
+            <path d="M12 3.25v2.5M12 18.25v2.5M4.75 12h-2.5M21.75 12h-2.5M6.5 6.5 4.75 4.75M19.25 19.25 17.5 17.5M17.5 6.5l1.75-1.75M6.5 17.5 4.75 19.25"/>
+          </g>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M20.182 14.445a8.75 8.75 0 0 1-10.627-10.46 1 1 0 0 0-1.41-1.14A10.75 10.75 0 1 0 21.75 16a1 1 0 0 0-1.568-1.555Z"/>
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <div class="policy-header">
+        <h1>Privacy Policy</h1>
+        <p class="company">GAB2XYZ Pte. Ltd.</p>
+        <p class="effective-date">Effective Date: January 14, 2026</p>
+      </div>
+
+      <div class="policy-content">
+        <h2>1. Introduction</h2>
+        <p>GAB2XYZ Pte. Ltd. ("Company," "we," "us," or "our") operates the Gabet mobile application (the "App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our App.</p>
+        <p>By using the App, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not access the App.</p>
+
+        <h2>2. Information We Collect</h2>
+
+        <h3>2.1 Account Information</h3>
+        <ul>
+          <li><strong>Email address</strong> - Required for account creation and authentication</li>
+          <li><strong>Password</strong> - Stored in encrypted/hashed form; we cannot access your actual password</li>
+          <li><strong>User ID</strong> - A unique identifier assigned to your account</li>
+        </ul>
+
+        <h3>2.2 Profile Information</h3>
+        <ul>
+          <li><strong>Display name</strong> - Optional name shown in the App</li>
+          <li><strong>Avatar</strong> - Profile picture or selected avatar</li>
+          <li><strong>Preferences</strong> - Currency, timezone, and locale settings</li>
+        </ul>
+
+        <h3>2.3 Financial Information</h3>
+        <ul>
+          <li><strong>Transactions</strong> - Amount, merchant name, date, description, and category of your financial transactions</li>
+          <li><strong>Categories</strong> - Custom spending categories you create</li>
+          <li><strong>Recurring transactions</strong> - Templates for repeated transactions</li>
+          <li><strong>Budgets</strong> - Budget limits and spending targets you set</li>
+        </ul>
+        <p>We do <strong>not</strong> collect or store your bank account numbers, credit card numbers, or login credentials for financial institutions.</p>
+
+        <h3>2.4 User Content</h3>
+        <ul>
+          <li><strong>Chat messages</strong> - Messages you send within the App</li>
+          <li><strong>Receipt photos</strong> - Images of receipts you upload</li>
+          <li><strong>Profile pictures</strong> - Photos you upload for your profile</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Your Responsibility:</strong> It is your responsibility to remove any personally identifiable information (such as names, addresses, phone numbers, or other sensitive data) from content before sharing it with the App. We do not automatically detect, hide, or remove such information. You have full control over what you share.</p>
+        </div>
+
+        <h3>2.5 Group Information</h3>
+        <p>If you use group features:</p>
+        <ul>
+          <li><strong>Group memberships</strong> - Groups you create or join</li>
+          <li><strong>Member information</strong> - Email addresses of users you invite</li>
+          <li><strong>Shared transactions</strong> - Transactions shared within groups</li>
+        </ul>
+
+        <h3>2.6 Technical Information</h3>
+        <ul>
+          <li><strong>Device tokens</strong> - Used solely for delivering push notifications</li>
+          <li><strong>Session data</strong> - Authentication tokens stored securely on your device</li>
+        </ul>
+
+        <h3>2.7 Subscription Information</h3>
+        <ul>
+          <li><strong>Subscription status</strong> - Whether you have an active Gabet Plus subscription</li>
+          <li><strong>Usage credits</strong> - Number of AI-powered message processing requests used</li>
+        </ul>
+        <p>Payment processing is handled entirely by Apple through the App Store. We do not receive or store your payment card details.</p>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li><strong>Provide core functionality</strong> - Track transactions, manage budgets, and organize your finances</li>
+          <li><strong>Power AI features</strong> - Categorize transactions, generate spending insights, and provide financial recommendations</li>
+          <li><strong>Deliver notifications</strong> - Send alerts about spending patterns, budget limits, and recurring transaction reminders</li>
+          <li><strong>Enable collaboration</strong> - Allow you to share financial information with group members you invite</li>
+          <li><strong>Process subscriptions</strong> - Manage your Gabet Plus subscription status</li>
+          <li><strong>Provide customer support</strong> - Respond to your inquiries and troubleshoot issues</li>
+        </ul>
+
+        <div class="highlight-box">
+          <p><strong>What We Do NOT Do With Your Data:</strong></p>
+          <ul>
+            <li><strong>We do NOT sell your personal data</strong> to any third party</li>
+            <li><strong>We do NOT use your data for marketing purposes</strong></li>
+            <li><strong>We do NOT use your personal data to improve our products</strong> (we may use anonymized, aggregated statistics)</li>
+            <li><strong>We do NOT share your data with advertisers</strong></li>
+            <li><strong>We do NOT track you across other apps or websites</strong></li>
+          </ul>
+        </div>
+
+        <h2>4. Artificial Intelligence Processing</h2>
+
+        <h3>4.1 How AI Is Used</h3>
+        <p>The App uses artificial intelligence to provide features such as:</p>
+        <ul>
+          <li>Automatic transaction categorization</li>
+          <li>Receipt text extraction</li>
+        </ul>
+
+        <h3>4.2 Third-Party AI Services</h3>
+        <p>To provide these features, certain data is processed by third-party AI services:</p>
+        <ul>
+          <li><strong>Anthropic (Claude)</strong> - Primary AI provider</li>
+          <li><strong>OpenAI (GPT)</strong> - Secondary AI provider</li>
+        </ul>
+
+        <h3>4.3 Data Shared With AI Providers</h3>
+        <p>When you use AI-powered features, the following data may be sent to AI providers:</p>
+        <ul>
+          <li>Transaction details (merchant, amount, category)</li>
+          <li>Chat messages you send</li>
+          <li>Receipt images you upload</li>
+        </ul>
+
+        <h3>4.4 AI Provider Data Handling</h3>
+        <p>AI providers process this data solely to generate responses and do not:</p>
+        <ul>
+          <li>Store your data beyond the immediate processing request</li>
+          <li>Use your data to train their models</li>
+          <li>Share your data with third parties</li>
+        </ul>
+        <p>By using AI-powered features in the App, you consent to this data processing. You may choose not to use AI features, though this will limit App functionality.</p>
+
+        <h2>5. Third-Party Services</h2>
+
+        <h3>5.1 Supabase</h3>
+        <p>We use Supabase for:</p>
+        <ul>
+          <li>User authentication</li>
+          <li>Database storage</li>
+          <li>File storage (photos)</li>
+        </ul>
+        <p>Data is stored in Supabase servers located in the <strong>United States</strong>.</p>
+        <p>Supabase Privacy Policy: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">https://supabase.com/privacy</a></p>
+
+        <h3>5.2 Apple Services</h3>
+        <p>We use Apple services for:</p>
+        <ul>
+          <li><strong>App Store / StoreKit</strong> - Subscription payment processing</li>
+          <li><strong>Apple Push Notification service (APNs)</strong> - Delivering push notifications</li>
+        </ul>
+        <p>Apple handles all payment processing. We do not receive your payment card information.</p>
+        <p>Apple Privacy Policy: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></p>
+
+        <h2>6. Data Storage and Security</h2>
+
+        <h3>6.1 Where Data Is Stored</h3>
+        <ul>
+          <li><strong>On your device</strong> - The App stores data locally for offline access</li>
+          <li><strong>In the cloud</strong> - Data is synchronized to servers in the <strong>United States</strong></li>
+        </ul>
+
+        <h3>6.2 Security Measures</h3>
+        <p>We implement industry-standard security measures including:</p>
+        <ul>
+          <li>Encryption of data in transit (TLS/HTTPS)</li>
+          <li>Encrypted password storage (hashing)</li>
+          <li>Secure session management</li>
+          <li>Row-level security policies ensuring you can only access your own data</li>
+          <li>Secure token storage in iOS Keychain</li>
+        </ul>
+
+        <h3>6.3 Your Responsibility</h3>
+        <p>You are responsible for:</p>
+        <ul>
+          <li>Keeping your login credentials confidential</li>
+          <li>Securing your device with a passcode or biometric lock</li>
+          <li>Logging out when using shared devices</li>
+        </ul>
+
+        <h2>7. Data Retention</h2>
+        <p>We retain your personal data <strong>until you delete your account</strong>.</p>
+        <p>When you delete your account:</p>
+        <ul>
+          <li>Your personal data is permanently deleted from our servers</li>
+          <li>Data shared in groups may be retained for other group members' records</li>
+          <li>Backup copies may persist for up to 30 days before permanent deletion</li>
+        </ul>
+
+        <h2>8. Your Rights</h2>
+
+        <h3>8.1 Access and Portability</h3>
+        <p>You can access your data directly through the App. Your transaction history, categories, and settings are visible within the App interface.</p>
+
+        <h3>8.2 Deletion</h3>
+        <p>You may request account deletion by emailing us at <a href="mailto:support@gab2.xyz">support@gab2.xyz</a> from your registered email address. Valid deletion requests will be processed and account deletion will:</p>
+        <ul>
+          <li>Remove your profile information</li>
+          <li>Delete your transaction history</li>
+          <li>Remove your chat messages</li>
+          <li>Cancel your subscription (if applicable)</li>
+          <li>Remove you from all groups</li>
+        </ul>
+        <p>Deletion requests must come from the email address associated with your account to verify ownership.</p>
+
+        <h3>8.3 Correction</h3>
+        <p>You can update or correct your information directly in the App at any time.</p>
+
+        <h3>8.4 Notification Preferences</h3>
+        <p>You can manage push notification preferences in your device settings.</p>
+
+        <h2>9. California Privacy Rights (CCPA)</h2>
+        <p>If you are a California resident, you have the right to:</p>
+        <ul>
+          <li><strong>Know</strong> what personal information we collect and how it is used</li>
+          <li><strong>Delete</strong> your personal information</li>
+          <li><strong>Opt-out</strong> of the sale of personal information (we do not sell your data)</li>
+          <li><strong>Non-discrimination</strong> for exercising your privacy rights</li>
+        </ul>
+        <p>To exercise these rights, contact us at <a href="mailto:support@gab2.xyz">support@gab2.xyz</a>.</p>
+
+        <h2>10. International Data Transfers</h2>
+        <p>Your information may be transferred to and processed in the United States, where our servers are located. By using the App, you consent to this transfer.</p>
+        <p>For users in the European Economic Area (EEA), we rely on your consent and our legitimate interests in providing the service as the legal basis for processing.</p>
+
+        <h2>11. Children's Privacy</h2>
+        <p>The App is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If we discover that we have collected personal information from a child under 13, we will delete that information promptly.</p>
+        <p>If you believe we have collected information from a child under 13, please contact us at <a href="mailto:support@gab2.xyz">support@gab2.xyz</a>.</p>
+
+        <h2>12. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by:</p>
+        <ul>
+          <li>Posting the new Privacy Policy in the App</li>
+          <li>Updating the "Effective Date" at the top of this policy</li>
+        </ul>
+        <p>We encourage you to review this Privacy Policy periodically.</p>
+
+        <h2>13. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+        <p><strong>GAB2XYZ Pte. Ltd.</strong><br>
+        Email: <a href="mailto:support@gab2.xyz">support@gab2.xyz</a></p>
+
+        <h2>14. Consent</h2>
+        <p>By using the Gabet App, you consent to:</p>
+        <ul>
+          <li>The collection and use of your information as described in this Privacy Policy</li>
+          <li>The processing of your data by third-party AI services for app functionality</li>
+          <li>The storage of your data on servers in the United States</li>
+        </ul>
+
+        <p style="text-align: center; margin-top: 32px; color: var(--neutral300); font-size: 14px;"><em>Last Updated: January 14, 2026</em></p>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 GAB2XYZ Pte. Ltd. All Rights Reserved. | <a href="index.html">Back to Home</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeKey = 'theme-preference';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const getStoredTheme = () => {
+      const stored = localStorage.getItem(themeKey);
+      return stored === 'light' || stored === 'dark' ? stored : 'auto';
+    };
+
+    let themeSetting = getStoredTheme();
+
+    const resolvedTheme = (setting) => setting === 'auto'
+      ? (prefersDark.matches ? 'dark' : 'light')
+      : setting;
+
+    function applyTheme(setting) {
+      const activeTheme = resolvedTheme(setting);
+      if (setting === 'auto') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.dataset.theme = setting;
+      }
+      if (themeToggle) {
+        themeToggle.dataset.state = activeTheme;
+        themeToggle.setAttribute('aria-label', `Switch to ${activeTheme === 'dark' ? 'light' : 'dark'} mode`);
+      }
+    }
+
+    function setTheme(setting) {
+      themeSetting = setting;
+      if (setting === 'auto') {
+        localStorage.removeItem(themeKey);
+      } else {
+        localStorage.setItem(themeKey, setting);
+      }
+      applyTheme(setting);
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = resolvedTheme(themeSetting) === 'dark' ? 'light' : 'dark';
+        setTheme(nextTheme);
+      });
+    }
+
+    prefersDark.addEventListener('change', () => {
+      if (themeSetting === 'auto') applyTheme('auto');
+    });
+
+    applyTheme(themeSetting);
+  </script>
+</body>
+</html>
