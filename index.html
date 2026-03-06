@@ -515,6 +515,65 @@
       stroke-linejoin: round;
     }
 
+    .review-highlights {
+      grid-column: span 12;
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: var(--radius-3);
+      border: 1px solid rgba(37,99,235,0.12);
+      background: linear-gradient(145deg, rgba(37,99,235,0.06), rgba(255,255,255,0.88));
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .review-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .review-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
+    .review-card {
+      border: 1px solid rgba(37,99,235,0.12);
+      border-radius: var(--radius-2);
+      background: var(--card-strong);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-stars {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: #f59e0b;
+      font-weight: 700;
+    }
+
+    .review-quote {
+      margin: 0;
+      color: var(--neutral600);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .review-meta {
+      font-size: 12px;
+      color: var(--neutral400);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
     .body {
       font-size: 16px;
       line-height: 1.6;
@@ -1499,6 +1558,31 @@
             </div>
             <h3>Shared Spaces</h3>
             <p>Track shared spending with family or teammates in one space.</p>
+          </div>
+        </div>
+
+        <div class="review-highlights" aria-label="User review highlights">
+          <div class="review-header">
+            <div class="eyebrow">User review highlights</div>
+            <h3 class="headline" style="font-size: 24px;">What users like most about Gabet</h3>
+            <p class="body" style="max-width: 680px;">A few recurring themes from user feedback: speed, convenience, and clarity.</p>
+          </div>
+          <div class="review-cards">
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
+              <div class="review-meta">Fast and easy logging</div>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">“Auto-categorization is surprisingly accurate. It saves me from doing cleanup later.”</p>
+              <div class="review-meta">Helpful automation</div>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">“The charts and transaction list make spending patterns obvious at a glance.”</p>
+              <div class="review-meta">Clear spending insights</div>
+            </article>
           </div>
         </div>
       </section>
