@@ -535,37 +535,32 @@
       width: min(960px, 100%);
       padding: 0;
       overflow: hidden;
-    }
-
-    .review-carousel .feature-track {
+    }    .review-carousel .feature-track {
       display: flex;
-      gap: 0;
-      transition: transform 900ms ease;
+      gap: 14px;
+      width: max-content;
+      animation: reviewMarquee 45s linear infinite;
       will-change: transform;
     }
 
-    .review-slide,
-    .review-slide.active {
-      width: 100%;
-      min-width: 100%;
-      align-items: stretch;
-      display: grid !important;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .review-slide .mini-feature {
-      width: 100%;
+    .review-card-item {
+      flex: 0 0 calc((min(960px, 100vw - 48px) - 28px) / 3);
+      max-width: 300px;
       text-align: left;
       align-items: flex-start;
       padding: 18px;
     }
 
+    @keyframes reviewMarquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(-50% - 7px)); }
+    }
+
     @media (max-width: 900px) {
-      .review-slide,
-      .review-slide.active {
-        grid-template-columns: 1fr;
+      .review-card-item {
+        flex-basis: min(88vw, 340px);
       }
+    }
     }
 
     .review-quote {
@@ -1571,48 +1566,47 @@
           </div>
           <div class="feature-carousel review-carousel">
             <div class="feature-stage">
-              <div class="feature-track" data-carousel data-carousel-label="User review" data-autoplay-ms="5500" data-carousel-mode="scroll">
-                <article class="feature-slide review-slide active">
-                  <div class="mini-feature">
-                    <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
-                    <p class="review-quote"><strong>— Mary</strong></p>
-                  </div>
-                  <div class="mini-feature">
-                    <p class="review-quote">“Auto-categorization is surprisingly accurate. It saves me from doing cleanup later.”</p>
-                    <p class="review-quote"><strong>— Noah</strong></p>
-                  </div>
-                  <div class="mini-feature">
-                    <p class="review-quote">“The charts and transaction list make spending patterns obvious at a glance.”</p>
-                    <p class="review-quote"><strong>— Ava</strong></p>
-                  </div>
+              <div class="feature-track review-marquee" aria-label="User review marquee">
+                <article class="mini-feature review-card-item">
+                  <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
+                  <p class="review-quote"><strong>— Mary</strong></p>
                 </article>
-                <article class="feature-slide review-slide">
-                  <div class="mini-feature">
-                    <p class="review-quote">“The charts and transaction list make spending patterns obvious at a glance.”</p>
-                    <p class="review-quote"><strong>— Ava</strong></p>
-                  </div>
-                  <div class="mini-feature">
-                    <p class="review-quote">“Shared Spaces made tracking household spending finally simple for both of us.”</p>
-                    <p class="review-quote"><strong>— Liam</strong></p>
-                  </div>
-                  <div class="mini-feature">
-                    <p class="review-quote">“Recurring transactions and reminders save me from forgetting monthly bills.”</p>
-                    <p class="review-quote"><strong>— Sophia</strong></p>
-                  </div>
+                <article class="mini-feature review-card-item">
+                  <p class="review-quote">“Auto-categorization is surprisingly accurate. It saves me from doing cleanup later.”</p>
+                  <p class="review-quote"><strong>— Noah</strong></p>
                 </article>
-                <article class="feature-slide review-slide">
-                  <div class="mini-feature">
-                    <p class="review-quote">“Recurring transactions and reminders save me from forgetting monthly bills.”</p>
-                    <p class="review-quote"><strong>— Sophia</strong></p>
-                  </div>
-                  <div class="mini-feature">
-                    <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
-                    <p class="review-quote"><strong>— Mary</strong></p>
-                  </div>
-                  <div class="mini-feature">
-                    <p class="review-quote">“Auto-categorization is surprisingly accurate. It saves me from doing cleanup later.”</p>
-                    <p class="review-quote"><strong>— Noah</strong></p>
-                  </div>
+                <article class="mini-feature review-card-item">
+                  <p class="review-quote">“The charts and transaction list make spending patterns obvious at a glance.”</p>
+                  <p class="review-quote"><strong>— Ava</strong></p>
+                </article>
+                <article class="mini-feature review-card-item">
+                  <p class="review-quote">“Shared Spaces made tracking household spending finally simple for both of us.”</p>
+                  <p class="review-quote"><strong>— Liam</strong></p>
+                </article>
+                <article class="mini-feature review-card-item">
+                  <p class="review-quote">“Recurring transactions and reminders save me from forgetting monthly bills.”</p>
+                  <p class="review-quote"><strong>— Sophia</strong></p>
+                </article>
+
+                <article class="mini-feature review-card-item" aria-hidden="true">
+                  <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
+                  <p class="review-quote"><strong>— Mary</strong></p>
+                </article>
+                <article class="mini-feature review-card-item" aria-hidden="true">
+                  <p class="review-quote">“Auto-categorization is surprisingly accurate. It saves me from doing cleanup later.”</p>
+                  <p class="review-quote"><strong>— Noah</strong></p>
+                </article>
+                <article class="mini-feature review-card-item" aria-hidden="true">
+                  <p class="review-quote">“The charts and transaction list make spending patterns obvious at a glance.”</p>
+                  <p class="review-quote"><strong>— Ava</strong></p>
+                </article>
+                <article class="mini-feature review-card-item" aria-hidden="true">
+                  <p class="review-quote">“Shared Spaces made tracking household spending finally simple for both of us.”</p>
+                  <p class="review-quote"><strong>— Liam</strong></p>
+                </article>
+                <article class="mini-feature review-card-item" aria-hidden="true">
+                  <p class="review-quote">“Recurring transactions and reminders save me from forgetting monthly bills.”</p>
+                  <p class="review-quote"><strong>— Sophia</strong></p>
                 </article>
               </div>
             </div>
