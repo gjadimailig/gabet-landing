@@ -541,16 +541,20 @@
       padding: 0 8px;
     }
 
-    .review-slide {
-      width: 100%;
-      align-items: stretch;
-      display: none;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+    .review-carousel .feature-track {
+      display: flex;
+      gap: 0;
+      transition: transform 900ms ease;
+      will-change: transform;
     }
 
-    .review-carousel .review-slide.active {
-      display: grid !important;
+    .review-slide {
+      width: 100%;
+      min-width: 100%;
+      align-items: stretch;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .review-slide .mini-feature {
@@ -561,8 +565,7 @@
     }
 
     @media (max-width: 900px) {
-      .review-slide,
-      .review-slide.active {
+      .review-slide {
         grid-template-columns: 1fr;
       }
     }
@@ -1570,7 +1573,7 @@
           </div>
           <div class="feature-carousel review-carousel">
             <div class="feature-stage">
-              <div class="feature-track" data-carousel data-carousel-label="User review" data-autoplay-ms="5500">
+              <div class="feature-track" data-carousel data-carousel-label="User review" data-autoplay-ms="5500" data-carousel-mode="scroll">
                 <article class="feature-slide review-slide active">
                   <div class="mini-feature">
                     <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
@@ -1868,7 +1871,15 @@
 
       function goTo(i) {
         index = (i + slides.length) % slides.length;
-        slides.forEach((slide, idx) => slide.classList.toggle('active', idx === index));
+        const mode = track.dataset.carouselMode || 'toggle';
+
+        if (mode === 'scroll') {
+          track.style.transform = `translateX(-${index * 100}%)`;
+          slides.forEach((slide, idx) => slide.classList.toggle('active', idx === index));
+        } else {
+          slides.forEach((slide, idx) => slide.classList.toggle('active', idx === index));
+        }
+
         if (dots) {
           Array.from(dots.children).forEach((dot, idx) => dot.classList.toggle('active', idx === index));
         }
