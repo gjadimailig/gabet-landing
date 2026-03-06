@@ -518,14 +518,15 @@
     .review-highlights {
       grid-column: span 12;
       margin-top: 28px;
-      padding: 26px;
+      padding: 22px;
       border-radius: var(--radius-3);
-      border: 1px solid rgba(37,99,235,0.12);
-      background: linear-gradient(145deg, rgba(37,99,235,0.06), rgba(255,255,255,0.88));
+      border: 1px solid rgba(96,165,250,0.22);
+      background: rgba(19, 36, 89, 0.62);
       box-shadow: var(--shadow-md);
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
+      backdrop-filter: blur(6px);
     }
 
     .review-header {
@@ -543,9 +544,9 @@
     }
 
     .review-card {
-      border: 1px solid rgba(37,99,235,0.12);
+      border: 1px solid rgba(96,165,250,0.2);
       border-radius: var(--radius-2);
-      background: var(--card-strong);
+      background: rgba(23, 50, 126, 0.45);
       padding: 14px;
       display: flex;
       flex-direction: column;
@@ -562,14 +563,14 @@
 
     .review-quote {
       margin: 0;
-      color: var(--neutral600);
+      color: #e5ecff;
       font-size: 14px;
       line-height: 1.45;
     }
 
     .review-meta {
       font-size: 12px;
-      color: var(--neutral400);
+      color: #b8c8ff;
       font-weight: 600;
       letter-spacing: 0.02em;
     }
@@ -1564,8 +1565,8 @@
         <div class="review-highlights" aria-label="User review highlights">
           <div class="review-header">
             <div class="eyebrow">User review highlights</div>
-            <h3 class="headline" style="font-size: 24px;">What users like most about Gabet</h3>
-            <p class="body" style="max-width: 680px;">A few recurring themes from user feedback: speed, convenience, and clarity.</p>
+            <h3 class="headline" style="font-size: 28px; color: #f4f7ff;">What users like most about Gabet</h3>
+            <p class="body" style="max-width: 680px; color: #c7d5ff;">A few recurring themes from user feedback: speed, convenience, and clarity.</p>
           </div>
           <div class="review-cards">
             <article class="review-card">
