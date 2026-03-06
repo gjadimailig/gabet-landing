@@ -539,6 +539,13 @@
     .review-slide {
       width: 100%;
       align-items: stretch;
+      display: none;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .review-carousel .review-slide.active {
+      display: grid !important;
     }
 
     .review-slide .mini-feature {
@@ -546,6 +553,13 @@
       text-align: left;
       align-items: flex-start;
       padding: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .review-slide,
+      .review-slide.active {
+        grid-template-columns: 1fr;
+      }
     }
 
     .review-quote {
@@ -1556,14 +1570,10 @@
                     <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
                     <p class="review-quote"><strong>— Mary</strong></p>
                   </div>
-                </article>
-                <article class="feature-slide review-slide">
                   <div class="mini-feature">
                     <p class="review-quote">“Auto-categorization is surprisingly accurate. It saves me from doing cleanup later.”</p>
                     <p class="review-quote"><strong>— Noah</strong></p>
                   </div>
-                </article>
-                <article class="feature-slide review-slide">
                   <div class="mini-feature">
                     <p class="review-quote">“The charts and transaction list make spending patterns obvious at a glance.”</p>
                     <p class="review-quote"><strong>— Ava</strong></p>
@@ -1571,14 +1581,30 @@
                 </article>
                 <article class="feature-slide review-slide">
                   <div class="mini-feature">
+                    <p class="review-quote">“The charts and transaction list make spending patterns obvious at a glance.”</p>
+                    <p class="review-quote"><strong>— Ava</strong></p>
+                  </div>
+                  <div class="mini-feature">
                     <p class="review-quote">“Shared Spaces made tracking household spending finally simple for both of us.”</p>
                     <p class="review-quote"><strong>— Liam</strong></p>
+                  </div>
+                  <div class="mini-feature">
+                    <p class="review-quote">“Recurring transactions and reminders save me from forgetting monthly bills.”</p>
+                    <p class="review-quote"><strong>— Sophia</strong></p>
                   </div>
                 </article>
                 <article class="feature-slide review-slide">
                   <div class="mini-feature">
                     <p class="review-quote">“Recurring transactions and reminders save me from forgetting monthly bills.”</p>
                     <p class="review-quote"><strong>— Sophia</strong></p>
+                  </div>
+                  <div class="mini-feature">
+                    <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
+                    <p class="review-quote"><strong>— Mary</strong></p>
+                  </div>
+                  <div class="mini-feature">
+                    <p class="review-quote">“Auto-categorization is surprisingly accurate. It saves me from doing cleanup later.”</p>
+                    <p class="review-quote"><strong>— Noah</strong></p>
                   </div>
                 </article>
               </div>
