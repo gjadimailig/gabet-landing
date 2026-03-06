@@ -531,10 +531,21 @@
       text-align: center;
     }
 
-    .review-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 14px;
+    .review-carousel .feature-stage {
+      width: min(760px, 100%);
+      padding: 0;
+    }
+
+    .review-slide {
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .review-slide .mini-feature {
+      width: 100%;
+      text-align: left;
+      align-items: flex-start;
+      padding: 18px;
     }
 
     .review-quote {
@@ -1537,19 +1548,46 @@
             <h3 class="headline" style="font-size: 24px;">What users like most about Gabet</h3>
             <p class="body" style="max-width: 680px;">A few recurring themes from user feedback: speed, convenience, and clarity.</p>
           </div>
-          <div class="review-cards">
-            <article class="mini-feature">
-              <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
-              <p class="review-quote"><strong>— Mary</strong></p>
-            </article>
-            <article class="mini-feature">
-              <p class="review-quote">“Auto-categorization is surprisingly accurate. It saves me from doing cleanup later.”</p>
-              <p class="review-quote"><strong>— Noah</strong></p>
-            </article>
-            <article class="mini-feature">
-              <p class="review-quote">“The charts and transaction list make spending patterns obvious at a glance.”</p>
-              <p class="review-quote"><strong>— Ava</strong></p>
-            </article>
+          <div class="feature-carousel review-carousel">
+            <div class="feature-stage">
+              <div class="feature-track" data-carousel data-carousel-label="User review" data-autoplay-ms="3500">
+                <article class="feature-slide review-slide active">
+                  <div class="mini-feature">
+                    <p class="review-quote">“Logging expenses feels effortless. I can add entries in seconds while I’m on the go.”</p>
+                    <p class="review-quote"><strong>— Mary</strong></p>
+                  </div>
+                </article>
+                <article class="feature-slide review-slide">
+                  <div class="mini-feature">
+                    <p class="review-quote">“Auto-categorization is surprisingly accurate. It saves me from doing cleanup later.”</p>
+                    <p class="review-quote"><strong>— Noah</strong></p>
+                  </div>
+                </article>
+                <article class="feature-slide review-slide">
+                  <div class="mini-feature">
+                    <p class="review-quote">“The charts and transaction list make spending patterns obvious at a glance.”</p>
+                    <p class="review-quote"><strong>— Ava</strong></p>
+                  </div>
+                </article>
+                <article class="feature-slide review-slide">
+                  <div class="mini-feature">
+                    <p class="review-quote">“Shared Spaces made tracking household spending finally simple for both of us.”</p>
+                    <p class="review-quote"><strong>— Liam</strong></p>
+                  </div>
+                </article>
+                <article class="feature-slide review-slide">
+                  <div class="mini-feature">
+                    <p class="review-quote">“Recurring transactions and reminders save me from forgetting monthly bills.”</p>
+                    <p class="review-quote"><strong>— Sophia</strong></p>
+                  </div>
+                </article>
+              </div>
+              <div class="carousel-controls" aria-label="Review carousel controls">
+                <button class="carousel-btn" data-dir="prev" aria-label="Previous review">‹</button>
+                <div class="carousel-dots" aria-hidden="false"></div>
+                <button class="carousel-btn" data-dir="next" aria-label="Next review">›</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1785,6 +1823,8 @@
       const dots = controls?.querySelector('.carousel-dots');
       const label = track.dataset.carouselLabel || 'Feature';
       let index = 0;
+      const autoplayMs = Number(track.dataset.autoplayMs || 0);
+      let autoplayTimer = null;
 
       function renderDots() {
         if (!dots) return;
@@ -1811,6 +1851,19 @@
       next?.addEventListener('click', () => goTo(index + 1));
       renderDots();
       goTo(0);
+
+      if (autoplayMs > 0) {
+        autoplayTimer = setInterval(() => goTo(index + 1), autoplayMs);
+        stage?.addEventListener('mouseenter', () => {
+          if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+          }
+        });
+        stage?.addEventListener('mouseleave', () => {
+          if (!autoplayTimer) autoplayTimer = setInterval(() => goTo(index + 1), autoplayMs);
+        });
+      }
     });
 
     applyTheme(themeSetting);
