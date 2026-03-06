@@ -532,13 +532,9 @@
     }
 
     .review-carousel .feature-stage {
-      width: min(760px, 100%);
+      width: min(960px, 100%);
       padding: 0;
-      overflow: visible;
-    }
-
-    .review-carousel .carousel-controls {
-      padding: 0 8px;
+      overflow: hidden;
     }
 
     .review-carousel .feature-track {
@@ -548,11 +544,12 @@
       will-change: transform;
     }
 
-    .review-slide {
+    .review-slide,
+    .review-slide.active {
       width: 100%;
       min-width: 100%;
       align-items: stretch;
-      display: grid;
+      display: grid !important;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
@@ -565,7 +562,8 @@
     }
 
     @media (max-width: 900px) {
-      .review-slide {
+      .review-slide,
+      .review-slide.active {
         grid-template-columns: 1fr;
       }
     }
